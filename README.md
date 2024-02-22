@@ -8,9 +8,9 @@
 - Display process details, listing each process utilizing the GPU, including process ID, type, name, and memory usage.
 - Filter output to show only GPU details, only process details, or both.
 
-#### Output Differences:
+### Output Differences:
 
-**Before**
+**nvidia-smi**
 
 ```
 Tue Feb 20 13:40:51 2024
@@ -54,7 +54,7 @@ Tue Feb 20 13:40:51 2024
 +---------------------------------------------------------------------------------------+
 ```
 
-**After**
+**ssmi**
 
 ```
 +---------------------------------------------------------------------------------------+

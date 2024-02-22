@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -67,6 +68,15 @@ CLIFlags handleCLIFlags(int argc, char* argv[]) {
                        printProcDetailsPassed || noFlagsPassed);
 }
 
+// Returns true if string has a length of zero or only contains whitespace
+// characters, false otherwise.
+bool isEmpty(char* str) {
+    int counter = 0;
+    while (isspace(str[counter])) { counter++; }
+
+    return counter == strlen(str);
+}
+
 int main(int argc, char* argv[]) {
     FILE* nvidiaSMIStream;
     char buffer0[4096];
@@ -97,7 +107,7 @@ int main(int argc, char* argv[]) {
     // Loops once per GPU on system
     while (fgets(buffer0, sizeof(buffer0), nvidiaSMIStream) != NULL) {
         // if the line starts with a space that means there are no more gpus to be processed
-        if (buffer0[0] == ' ') { break; }
+        if (isEmpty(buffer0)) { break; }
 
         if (flags.printGPUDetails) printf("%.*s", 6, buffer0); // prints "| GPU "
 

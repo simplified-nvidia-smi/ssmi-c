@@ -6,7 +6,7 @@ build: ssmi.c
 	$(CC) -D_POSIX_C_SOURCE=2 -std=c99 -Wall -g -s ssmi.c -o ssmi -lm
 
 
-install: ssmi
+install:
 	@echo Installing ssmi ...
 	@install -d /usr/bin
 	@install -m 755 ssmi /usr/bin/

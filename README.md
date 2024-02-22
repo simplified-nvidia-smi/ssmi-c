@@ -96,7 +96,7 @@ Tue Feb 20 13:40:51 2024
 To install `ssmi`, clone this repository and use the provided Makefile.
 
 ```bash
-git clone https://github.com/yourusername/ssmi.git
+git clone https://github.com/simplified-nvidia-smi/c-ssmi
 cd ssmi
 make
 sudo make install

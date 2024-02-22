@@ -119,7 +119,7 @@ int main(int argc, char* argv[]) {
     // since the while loop consumes one line before it exits there is no need to handle the blank
     // line following the gpu table
 
-    // if the gpu details were not printed out print the headder for the process table
+    // if the gpu details were not printed out print the header for the process table
     if (fgets(buffer0, sizeof(buffer0), nvidiaSMIStream) != NULL) {
         if (!flags.printGPUDetails && flags.printProcDetails) printf("%s", buffer0);
     }
@@ -128,7 +128,7 @@ int main(int argc, char* argv[]) {
     // "| Processes:                                                                            |"
     (void) fgets(buffer0, sizeof(buffer0), nvidiaSMIStream);
 
-    // print the process table column headders
+    // print the process table column headers
     // "|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |"
     if (fgets(buffer0, sizeof(buffer0), nvidiaSMIStream) != NULL) {
         if (flags.printProcDetails) printf("%s", buffer0);

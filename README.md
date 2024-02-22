@@ -97,7 +97,7 @@ To install `ssmi`, clone this repository and use the provided Makefile.
 
 ```bash
 git clone https://github.com/simplified-nvidia-smi/ssmi-c
-cd ssmi
+cd ssmi-c
 make
 sudo make install
 ```

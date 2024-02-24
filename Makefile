@@ -12,13 +12,13 @@ install:
 	@install -m 755 ssmi /usr/bin/
 	@install -d /usr/share/man/man1
 	@install -m 644 ssmi.1 /usr/share/man/man1/
-	@echo Successfuly installed
+	@echo Successfully installed
 
 uninstall:
 	@echo Uninstalling ssmi ...
 	@rm -f /usr/bin/ssmi
 	@rm -f /usr/share/man/man1/ssmi.1
-	@echo Successfuly uninstalled
+	@echo Successfully uninstalled
 
 clean:
 	@rm  ssmi

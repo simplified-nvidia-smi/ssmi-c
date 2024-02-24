@@ -1,6 +1,6 @@
 CC=gcc
 
-.PHONY: install uninstall
+.PHONY: build install uninstall clean
 
 build: ssmi.c
 	$(CC) -D_POSIX_C_SOURCE=2 -std=c99 -Wall -g -s ssmi.c -o ssmi -lm

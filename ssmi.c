@@ -76,6 +76,23 @@ bool isEmpty(char* str) {
     return counter == strlen(str);
 }
 
+// defined command functions based on target operation system
+#ifdef __linux__
+    FILE* runCommand(){
+        return popen("nvidia-smi", "r");
+    }
+    void closeCommand(FILE* commandStream) {
+        pclose(commandStream);
+    }
+#elif _WIN32
+    FILE* runCommand(){
+        return _popen("nvidia-smi", "r");
+    }
+    void closeCommand(FILE* commandStream) {
+        _pclose(commandStream);
+    }
+#endif
+
 int main(int argc, char* argv[]) {
     FILE* nvidiaSMIStream;
     char buffer0[4096];
@@ -84,7 +101,7 @@ int main(int argc, char* argv[]) {
     CLIFlags flags = handleCLIFlags(argc, argv);
 
     // Execute the nvidia-smi command and open a stream to read its output
-    nvidiaSMIStream = popen("nvidia-smi", "r");
+    nvidiaSMIStream = runCommand();
     if (nvidiaSMIStream == NULL) {
         fprintf(stderr, "ERROR: Failed to run command\n");
         exit(1);
@@ -153,7 +170,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Close the stream
-    pclose(nvidiaSMIStream);
+    closeCommand(nvidiaSMIStream);
 
     return 0;
 }
